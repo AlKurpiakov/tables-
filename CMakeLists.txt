@@ -1,3 +1,3 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 3.14)
-project(Tables)
-add_executable(Tables main.cpp)
+cmake_minimum_required(VERSION 3.8)
+project(Table)
+add_executable(main main.cpp)

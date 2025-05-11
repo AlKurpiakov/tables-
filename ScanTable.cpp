@@ -1,31 +1,28 @@
-#include "ScanTable.h"
-
+#include"ScanTable.h"
 PDataValue ScanTable::FindRecord(Key key){
-    size_t i = 0;
-    for (i; i < _dataCount; i++){
-        if(key == _records[i]->_key) break;
+    int i = 0;
+    for(i; i < _dataCount; i++){
+        if(key == _records[i]->_key){
+            break;
+        }
     }
-    _effiency = i + 1;
+    _efficiency = i+1;
     if(i < _dataCount){
         _curPos = i;
         return _records[i]->_data;
     }
     return nullptr;
 }
-
-void ScanTable::DelRecord(Key key){
-    if (FindRecord(key) == nullptr){
-        throw "loshok";
-    
-    }
+void ScanTable::DelRecotd(Key key){
+    if(FindRecord(key) == nullptr) throw "!!!";
     delete _records[_curPos];
     _records[_curPos] = _records[_dataCount - 1];
-    _record[--_dataCount] = nullptr;
+    _records[--_dataCount] = nullptr;
     Reset();
-
 }
-
-void ScanTable::InsRecord(Key key, PDatValue data){
-    if (IsFull()){ throw "Table is Full";}
-    _records[_dataCount++] = new PTabRecord(key, data);
+void ScanTable::InsRecord(Key key, PDataValue data){
+    if(IsFull()){
+        throw "Table is Full";
+    }
+    _records[_dataCount++] = new TabRecord(key, data);
 }
