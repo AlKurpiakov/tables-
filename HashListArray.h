@@ -8,6 +8,8 @@ private:
     size_t _tabSize;
     size_t _curList;
     PTabRecord _mark;
+    size_t _listPos;
+    size_t _freePos[2];
     std::forward_list<PTabRecord>* _lists;
 public:
     HashListArray(size_t tabSize);
