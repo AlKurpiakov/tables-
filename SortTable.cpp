@@ -1,4 +1,5 @@
 #include "SortTable.h"
+<<<<<<< HEAD
 #include "ArrayTable.h"
 
 void SortTable::InsertSort(PTabRecord *data, size_t count){
@@ -100,11 +101,23 @@ void SortTable::QuickSplit(PTabRecord *data, size_t count, size_t& pivot){
     data[0] = data[i2];
     data[i2] = ppivot;
 }
+=======
+
+void InsertSort(PTabRecord *data, size_t count);
+
+void QuickSort(PTabRecord *data, size_t count);
+void QuickSplit(PTabRecord *data, size_t count, size_t &pivot);
+
+void MergeSort(PTabRecord *data, size_t count);
+void MergeSorter(PTabRecord* &data, PTabRecord* &buffer, size_t size);
+void MergeData(PTabRecord* &data, PTabRecord* &buffer, size_t n1, size_t n2);
+>>>>>>> a853707 (21)
 
 void SortTable::SortData(){
     _efficiency = 0;
     switch (_sortMethod)
     {
+<<<<<<< HEAD
         case SortMethod::Insert:
             InsertSort(_records, _dataCount);
             break;
@@ -119,6 +132,22 @@ void SortTable::SortData(){
     }
 }
     
+=======
+    case SortMethod::Isert:
+        InsertSort(_records, _dataCount);
+        break;
+    case SortMethod::Quick:
+        QuickSort(_records, _dataCount);
+        break;
+    case SortMethod::Merge:
+        MergeSort(_records, _dataCount);
+        break;
+    default:
+        break;
+    }
+}
+
+>>>>>>> a853707 (21)
 SortTable& SortTable::operator=(const ScanTable& st){
     if (_records != nullptr){
         for (size_t i = 0; i < _dataCount; i++){
@@ -126,6 +155,7 @@ SortTable& SortTable::operator=(const ScanTable& st){
         }
         delete [] _records;
     }
+<<<<<<< HEAD
 
     _tabSize = st._tabSize;
     _dataCount = st.GetDataCount();
@@ -134,11 +164,20 @@ SortTable& SortTable::operator=(const ScanTable& st){
         _records[i] = (PTabRecord)st._records[i]->GetCopy();
     }
 
+=======
+    _tabSize = st._tabSize;
+    _dataCount = st._dataCount;
+    _records = new PTabRecord[_tabSize];
+    for (size_t i = 0; i < _dataCount; i++){
+        _records[i] = (PTabRecord)st._records[i]->GetCopy();
+    } 
+>>>>>>> a853707 (21)
     SortData();
     _curPos = 0;
     return *this;
 }
 
+<<<<<<< HEAD
 PDataValue SortTable::FindRecord(Key key){
     size_t i, i1 = 0, i2 = _dataCount - 1;
     _efficiency = 0;
@@ -200,3 +239,10 @@ PDataValue SortTable::FindRecord(Key key){
         _dataCount++;
         _curPos = 0;
     }
+=======
+DataValue FindRecord(Key key);
+void DelRecotd(Key key);
+void InsRecord(Key key, PDataValue value);
+
+~SortTable();
+>>>>>>> a853707 (21)

@@ -8,6 +8,89 @@
 #include "SortTable.h"
 #include "TabRecord.h"
 
+void merge (int *a, int left, int mid,int right){
+    int it1 = 0,  it2 = 0;
+    int res[right - left];
+
+    while (left + it1 < mid && mid + it2 < right){
+        if (a[left + it1] < a[mid + it2]) {
+            res[it1 + it2] = a[left + it1];
+            it1++;
+        }
+        else {
+            res[it1 + it2] = a[mid + it2];
+            it2++;
+        }
+    }
+
+    while (mid + it2 < right){
+        res[it1 + it2] = a[mid + it2];
+        it2++;
+    }
+
+    while (left + it1  < right){
+        res[it1 + it2] = a[left + it1];
+        it1++;
+    }
+
+    for (int i = 0; i < it1+it2; i++){
+        a[i + left] = res[i]; 
+    }
+
+}
+
+
+void mergeSort(int *a, int left , int right){
+    if (left + 1 >= right) return;
+
+    int mid = (left + right) / 2;
+
+    mergeSort(a, left, mid);
+    mergeSort(a, mid, right);
+    merge(a, left, mid, right);
+
+}
+
+void swap(int* x, int* y){
+    int *cup = x;
+    x = y;
+    y = cup;
+}
+
+int partition(int *a, int l, int r){
+    int val = a[(l + r) / 2];
+    int i = l, j = r;
+
+    while (i <= j){
+        while (val > a[i])
+        {
+            i++;
+        }
+        while (val < a[j])
+        {
+            j--;
+        }
+        if (i >= j) break;
+
+        swap( a + i, a + j);
+    }
+
+    return j;
+
+}
+
+
+void qSort(int *a, int l, int r){
+    int p;
+    if (l < r){
+        p = partition(a, l, r);
+        qSort(a, l, p);
+        qSort(a, p, r);
+    }
+}
+
+
+
 int main(){
     ScanTable table(10);  
     TableTestKit tester(table);

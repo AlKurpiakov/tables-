@@ -8,6 +8,11 @@ public:
     DatValue() {}
 
     virtual DatValue* GetCopy() = 0;
+<<<<<<< HEAD
+=======
+
+    virtual void Print(std::ostream& os) const;
+>>>>>>> a853707 (21)
     
     friend std::ostream& operator<<(std::ostream& os, const DatValue& dv){
         if (&dv != nullptr){
