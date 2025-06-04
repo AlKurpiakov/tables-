@@ -4,7 +4,6 @@ PDataValue TabRecord::GetCopy(){
     PDataValue tmp = new TabRecord(_key, _data);
     return tmp;
 }
-<<<<<<< HEAD
 const void TabRecord::Print(std::ostream& os)const{
     os << _key << _data << std::endl;
 }
@@ -21,10 +20,4 @@ bool TabRecord::operator<(const TabRecord& tr) const{
 }
  bool TabRecord::operator>(const TabRecord& tr) const{
     return (_key > tr._key)&(_data > tr._data);
-=======
-
- void TabRecord::Print(std::ostream& os) const{
-    os << "hello)";
-    return;
->>>>>>> a853707 (21)
 }

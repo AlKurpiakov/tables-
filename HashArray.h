@@ -1,3 +1,4 @@
+#pragma once
 #include "HashTable.h"
 #include "ArrayTable.h"
 #include "TabRecord.h"
@@ -10,10 +11,10 @@ protected:
     size_t _currPos;
     long _freePos;
     PTabRecord _mark;
-    size_t GetNextPos(size_t pos){
+    size_t GetNExtPos(size_t pos){
         return (pos + _hashStep) % _tabSize;
     }
-    public:
+public:
     HashArray(size_t size = 100, size_t hashStep = 7);
     ~HashArray();
 

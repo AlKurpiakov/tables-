@@ -1,49 +1,11 @@
-<<<<<<< HEAD
 #pragma once 
-#include<iostream>
+#include <iostream>
+#include <cstdint>
+#include <iomanip>
 #include "DatValue.h"
 
 using Key = std::string;
 using PDataValue = DatValue*;
-=======
-#include "TabRecord.h"
-
-class Marks : public DatValue
-{
-private:
-    uint8_t _math;
-    uint8_t _chem;
-    uint8_t _zov;
-    uint8_t _diffurs;
-    uint8_t _linal;
-public:
-    Marks(uint8_t math,
-    uint8_t chem,
-    uint8_t zov,
-    uint8_t diffurs,
-    uint8_t linal){
-        _math = math;
-        _chem = chem;
-        _zov = zov;
-        _diffurs = diffurs;
-        _linal = linal;
-    }
-
-    virtual void Print(std::ostream& os) const{
-        os << "hello)";
-        return;
-    }
-    
-
-    PDataValue GetCopy(){
-        PDataValue tmp = new Marks(this->_math, this->_chem, this->_zov, this->_diffurs, this->_linal);
-        return tmp;
-    }
-    
-    ~Marks();
-};
-
->>>>>>> a853707 (21)
 
 class Marks: public DatValue{
     private:
@@ -68,9 +30,6 @@ class Marks: public DatValue{
             PDataValue tmp = new Marks(_math,_chem,_zvo,_difeq,_ads);
             return tmp;
         }
-        // const void Print(std::ostream& os)const{
-        //     os << "hello" << std::endl;
-        // }
         const void Print(std::ostream& os)const{
             size_t flag = 10;
             os << "|" << std::setw(flag) << std::left <<static_cast<int>(_math)

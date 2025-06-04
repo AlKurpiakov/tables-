@@ -26,12 +26,7 @@ public:
         return _data;
     }
     virtual PDataValue GetCopy();
-<<<<<<< HEAD
     const virtual void Print(std::ostream& os)const;
-=======
-    virtual void Print(std::ostream& os) const ;
-    TabRecord& operator=(const TabRecord& tr);
->>>>>>> a853707 (21)
 
     TabRecord& operator=(const TabRecord& tr);
     bool operator==(const TabRecord& tr) const;
@@ -41,5 +36,6 @@ public:
     friend class ScanTable;
     friend class ArrayTable;
     friend class SortTable;
-    
+    friend class HashTable;
+    friend class TreeTable;
 };

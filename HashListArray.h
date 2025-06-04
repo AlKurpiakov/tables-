@@ -1,5 +1,5 @@
-
-#include <forward_list>
+#pragma once
+#include <list>
 #include "HashArray.h"
 
 class HashListArray : public HashTable
@@ -7,10 +7,8 @@ class HashListArray : public HashTable
 private:
     size_t _tabSize;
     size_t _curList;
-    PTabRecord _mark;
-    size_t _listPos;
-    size_t _freePos[2];
-    std::forward_list<PTabRecord>* _lists;
+    std::list<PTabRecord>::iterator _curElem;
+    std::list<PTabRecord>* _lists;
 public:
     HashListArray(size_t tabSize);
     ~HashListArray();

@@ -79,17 +79,17 @@ PDataValue HashArray::FindRecord(Key key){
                 }
             }
         }
-        _currPos = GetNextPos(_currPos);
+        _currPos = GetNExtPos(_currPos);
     }
     return tmp;
 }
 
-void HashArray::InsRecord(Key key, PDataValue value){
+void HashArray::InsRecord(Key key, PDataValue data){
     if (IsFull()) throw "Table is Full";
     PDataValue tmp = FindRecord(key);
     if (tmp != nullptr) throw "Dublicate";
     if (_freePos != -1) _currPos = _freePos;
-    _records[_currPos] = new TabRecord(key, value);
+    _records[_currPos] = new TabRecord(key, data);
     _dataCount++;
 }
 

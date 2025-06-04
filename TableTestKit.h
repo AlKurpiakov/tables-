@@ -6,8 +6,14 @@
 #include <ctime> 
 #include <chrono>
 #include <iomanip>
-#include"ScanTable.h"
-#include"Marks.h"
+#include "ArrayTable.h"
+#include "DatValue.h"
+#include "ScanTable.h"
+#include "Table.h"
+#include "SortTable.h"
+#include "TabRecord.h"
+#include "TreeTable.h"
+#include "Marks.h"
 
 class TableTestKit{
     private:
@@ -73,7 +79,7 @@ class TableTestKit{
         }
 
         uint8_t GenerateRandomGrade() {
-            return 2 + rand() % 4;  // числа от 2 до 5
+            return 2 + rand() % 4;  
         }
 
         void GenerateData(size_t numRecords){
@@ -98,8 +104,8 @@ class TableTestKit{
         }
 
         void PrintTable() {
-            size_t wideFlag = 40;  // Ширина колонки Full name
-            size_t flag = 10;      // Ширина остальных колонок
+            size_t wideFlag = 40;
+            size_t flag = 10; 
         
             std::cout << "+";
             for (int i = 0; i < wideFlag; i++) std::cout << "-";
@@ -147,12 +153,10 @@ class TableTestKit{
         }
         
         void FillTable(size_t numRecords){ 
-            //for (size_t i = 0; i < numRecords; i++){
                 GenerateData(numRecords);
-            //}
         }
         
-        void RemoveRecord(){// поиск и удаление элементов  100 запусков
+        void RemoveRecord(){
             int k = 0;
             for (size_t i = 0; i < 100; ++i) {
                 std::string key = GenerateRandomSurname() + " " + GenerateRandomName() + " " + GenerateRandomPatronymic(); 
@@ -169,7 +173,7 @@ class TableTestKit{
         }
         
         
-        void FindRecord(){ // 100 запусков
+        void FindRecord(){
             int k = 0;
             for (size_t i = 0; i < 100; ++i) {
         
